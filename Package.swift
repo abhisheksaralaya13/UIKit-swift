@@ -3,13 +3,13 @@
 import PackageDescription
 
 let package = Package(
-    name: "UIKitSwift",
+    name: "CometChatUIKitSwift",
     defaultLocalization: "en",
     platforms: [
         .iOS(.v13)
     ],
     products: [
-        .library(name: "UIKitSwift", targets: ["UIKitSwiftWrapper"])
+        .library(name: "CometChatUIKitSwift", targets: ["CometChatUIKitSwiftWrapper"])
     ],
     
     dependencies: [
@@ -18,14 +18,14 @@ let package = Package(
         )
     ],
     targets: [
-        .target(name: "UIKitSwiftWrapper",
+        .target(name: "CometChatUIKitSwiftWrapper",
                 dependencies: [
-                    .target(name: "UIKitSwift", condition: .when(platforms: [.iOS])),
+                    .target(name: "CometChatUIKitSwift", condition: .when(platforms: [.iOS])),
                     .product(name: "CometChatSDK", package: "CometChatSDK")
                 ],
-               path: "UIKitSwiftWrapper"),
+               path: "CometChatUIKitSwiftWrapper"),
         .binaryTarget(
-            name: "UIKitSwift",
+            name: "CometChatUIKitSwift",
             url: "https://library.cometchat.io/ios/v4/xcode15/CometChatUIKitSwift_4_3_0_.xcframework.zip",
             checksum: "b2ace9b0fe30e8b2b2f7cb81e8c2b953fc1fe32a68afd677d442f4b8dd22cafd"
         )
